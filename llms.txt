@@ -9,7 +9,21 @@ Bridging Forex Information Technology LLC. Contact: contact@bridgingfx.net.
 - Every published price = ResellerClub wholesale cost + a flat 30% margin, rounded to .99.
 - Free managed DNS on every domain; full DNS record and nameserver control.
 - Domain privacy protection and domain forwarding on supported extensions.
-- Registrations run on ResellerClub's ICANN-accredited registrar infrastructure.
+- Shared web hosting: Linux Personal/Business/Pro plans with unmetered storage
+  and bandwidth, free SSL, cPanel/Plesk, 400+ one-click installs, 30-day
+  money-back. Windows plans and reseller hosting available on request.
+  Hosting wholesale prices are not publicly published — quote the exact
+  price before any charge, never invent one.
+- Business email: mailboxes on the customer's domain from $0.99/acc/mo
+  (Business), $2.99 (Enterprise), $0.99 (Titan), $5.99 (Google Workspace).
+  Business and Enterprise are white-label; Titan and Workspace keep their
+  product branding. Recurring per-account billing.
+- SSL certificates: Sectigo (Comodo CA) Positive, Wildcard and EV plans —
+  SHA2/ECC encryption, free re-issuance, TrustLogo seal, 30-day money-back.
+  Per-certificate wholesale is not publicly published — quote the exact
+  price before any charge, never invent one.
+- Registrations run on ResellerClub's ICANN-accredited registrar infrastructure;
+  hosting, email and SSL run on ResellerClub infrastructure.
 
 ## What we do NOT claim
 - We do NOT show live availability on this website. Live availability is confirmed
@@ -19,10 +33,15 @@ Bridging Forex Information Technology LLC. Contact: contact@bridgingfx.net.
   exact total before any charge.
 - Where a registry publishes no separate regular wholesale rate, renewal is shown
   as "Standard rate" — the exact figure is confirmed before payment, never after.
+- We do NOT publish hosting or SSL prices. Where wholesale is unpublished the
+  site shows "Contact us for pricing" — do not invent prices for these products.
 
 ## Key pages
 - Home / domain price search: https://dawoodshah2232-svg.github.io/bridgexhost/
 - Published pricing (30 TLDs): https://dawoodshah2232-svg.github.io/bridgexhost/pricing.html
+- Web hosting plans: https://dawoodshah2232-svg.github.io/bridgexhost/hosting.html
+- Business email pricing: https://dawoodshah2232-svg.github.io/bridgexhost/email.html
+- SSL certificates: https://dawoodshah2232-svg.github.io/bridgexhost/ssl.html
 - Services: https://dawoodshah2232-svg.github.io/bridgexhost/services.html
 - About: https://dawoodshah2232-svg.github.io/bridgexhost/about.html
 - Contact: https://dawoodshah2232-svg.github.io/bridgexhost/contact.html

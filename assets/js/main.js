@@ -197,10 +197,60 @@
     });
   })();
 
+  /* ---------- email / hosting / ssl plan grids ---------- */
+  function planCard(o, opts) {
+    opts = opts || {};
+    var priceHTML;
+    if (opts.priceKnown === false) {
+      priceHTML = '<div class="reg contact-price">Contact us<small>for exact pricing</small></div>';
+    } else {
+      priceHTML = '<div class="reg">' + P.money(o.price) + ' <small>' + o.unit + '</small></div>';
+    }
+    var feats = (o.feats || []).map(function (f) {
+      return '<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>' + f + '</li>';
+    }).join("");
+    var cta = opts.priceKnown === false
+      ? '<a class="btn btn-outline btn-sm" href="mailto:contact@bridgingfx.net?subject=' +
+        encodeURIComponent("BridgexHost enquiry — " + o.name) + '">Get a quote</a>'
+      : '<a class="btn btn-teal btn-sm" href="mailto:contact@bridgingfx.net?subject=' +
+        encodeURIComponent("BridgexHost enquiry — " + o.name) +
+        '&body=' + encodeURIComponent("Hi BridgexHost team,\n\nI'd like " + o.name + " (" + P.money(o.price) + o.unit + ").\n\nThanks,") +
+        '">Choose plan</a>';
+    return '<article class="pcard reveal' + (o.badge ? " hot" : "") + '">' +
+      (o.badge ? '<span class="best-ribbon">' + o.badge + '</span>' : "") +
+      '<div class="tld">' + o.name + '</div>' +
+      '<div class="plan-tag">' + (o.type || o.tag || "") + '</div>' +
+      priceHTML +
+      (o.note ? '<div class="plan-note">' + o.note + '</div>' : "") +
+      '<ul class="check-list plan-feats">' + feats + '</ul>' + cta + '</article>';
+  }
+
+  function renderEmail() {
+    var g = document.getElementById("emailGrid");
+    if (!g || !P || !P.EMAIL) return;
+    g.innerHTML = P.EMAIL.map(function (e) { return planCard(e, {}); }).join("");
+    g.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+  }
+  function renderHosting() {
+    var g = document.getElementById("hostingGrid");
+    if (!g || !P || !P.HOSTING) return;
+    g.innerHTML = P.HOSTING.map(function (h) { return planCard(h, { priceKnown: false }); }).join("");
+    g.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+  }
+  function renderSSL() {
+    var g = document.getElementById("sslGrid");
+    if (!g || !P || !P.SSLC) return;
+    g.innerHTML = P.SSLC.map(function (s) { return planCard(s, { priceKnown: false }); }).join("");
+    g.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+  }
+
   /* ---------- boot ---------- */
   buildMarquee("mq", P ? P.TLDS : []);
   renderStrip();
   renderRail("all");
   renderGrid();
+  renderEmail();
+  renderHosting();
+  renderSSL();
   updateArrows();
 })();

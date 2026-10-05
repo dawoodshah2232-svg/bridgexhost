@@ -70,5 +70,85 @@
     return null;
   }
 
-  window.BHX_PRICING = { TLDS: TLDS, find: find, money: money, retail: retail };
+  /* ---------- EMAIL (official ResellerClub reseller "from" wholesale,
+     resellerclub.com/email, observed 2026-10-06; retail = x1.30 -> .99) */
+  var EMAIL = [
+    { id: "business", name: "Business Email",
+      tag: "Entry-level professional email for startups",
+      w: 0.45, price: retail(0.45), unit: "/acc/mo", whiteLabel: true,
+      feats: ["5 GB storage per account", "Email on your own domain",
+        "POP3, IMAP & webmail sync", "Calendar, contacts & auto-responders",
+        "ClamAV anti-virus + branded SSL", "Add 5 GB storage blocks as you grow"] },
+    { id: "enterprise", name: "Enterprise Email",
+      tag: "Robust email for growing teams",
+      w: 2.00, price: retail(2.00), unit: "/acc/mo", whiteLabel: true,
+      feats: ["30 GB mailbox per account", "Extra storage $0.20 / 5 GB",
+        "Calendar & address book", "Sync across all devices",
+        "Auto-responders & forwarding", "Cloudmark protection + branded SSL"] },
+    { id: "titan", name: "Titan Email",
+      tag: "Modern business email, white-label ready",
+      w: 0.69, price: retail(0.69), unit: "/acc/mo", whiteLabel: false,
+      note: "Titan branding retained",
+      feats: ["Mailboxes on your domain", "Clean webmail + iOS/Android apps",
+        "Read receipts & follow-up reminders", "Calendar & contacts built in",
+        "One-click mailbox migration"] },
+    { id: "workspace", name: "Google Workspace",
+      tag: "Google's full productivity suite",
+      w: 4.59, price: retail(4.59), unit: "/acc/mo", whiteLabel: false,
+      note: "Google branding retained, resold as-is",
+      feats: ["Gmail on your domain", "30 GB storage per user",
+        "Docs, Sheets, Drive & Meet", "Shared calendars & video meetings",
+        "Google spam protection"] }
+  ];
+
+  /* ---------- HOSTING (specs from published ResellerClub plan
+     descriptions, 2026; wholesale slab prices NOT publicly published —
+     plans render as "Contact us for pricing", never invented) */
+  var HOSTING = [
+    { id: "personal", name: "Personal", os: "Linux", priceKnown: false,
+      tag: "Your first website",
+      feats: ["1 website", "Unmetered storage & bandwidth",
+        "Free SSL certificate", "cPanel / Plesk control panel",
+        "400+ one-click installs", "Free DNS management",
+        "24/7 support · 30-day money-back"] },
+    { id: "business", name: "Business", os: "Linux", priceKnown: false,
+      tag: "For growing businesses", badge: "BEST VALUE",
+      feats: ["3 websites", "Unmetered storage & bandwidth",
+        "Free SSL certificate", "cPanel / Plesk control panel",
+        "400+ one-click installs", "Free DNS management",
+        "24/7 support · 30-day money-back"] },
+    { id: "pro", name: "Pro", os: "Linux", priceKnown: false,
+      tag: "Maximum room to grow",
+      feats: ["Unlimited websites", "Unmetered storage & bandwidth",
+        "Free SSL certificate", "cPanel / Plesk control panel",
+        "400+ one-click installs", "Free DNS management",
+        "24/7 support · 30-day money-back"] }
+  ];
+
+  /* ---------- SSL (4 Sectigo certificate plans per resellerclub.com;
+     per-cert wholesale NOT publicly published — "Contact us", never
+     invented) */
+  var SSLC = [
+    { id: "positive", name: "Positive SSL", type: "DV — single domain",
+      priceKnown: false,
+      tag: "The essential padlock",
+      feats: ["Secures one domain", "Domain validation (DV)",
+        "SHA2 & ECC 128/256-bit encryption", "Free re-issuance",
+        "TrustLogo site seal", "30-day money-back"] },
+    { id: "wildcard", name: "Wildcard SSL", type: "DV — domain + all subdomains",
+      priceKnown: false,
+      tag: "One cert, every subdomain", badge: "MOST FLEXIBLE",
+      feats: ["Secures domain + unlimited subdomains", "Domain validation (DV)",
+        "SHA2 & ECC 128/256-bit encryption", "Free re-issuance",
+        "TrustLogo site seal", "30-day money-back"] },
+    { id: "ev", name: "EV SSL", type: "Extended validation",
+      priceKnown: false,
+      tag: "Maximum trust signal",
+      feats: ["Company name in the address bar", "Extended validation (EV)",
+        "SHA2 & ECC 128/256-bit encryption", "Free re-issuance",
+        "TrustLogo site seal", "30-day money-back"] }
+  ];
+
+  window.BHX_PRICING = { TLDS: TLDS, EMAIL: EMAIL, HOSTING: HOSTING, SSLC: SSLC,
+    find: find, money: money, retail: retail };
 })();

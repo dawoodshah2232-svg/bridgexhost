@@ -234,6 +234,16 @@ h2.sec-title{font-size:clamp(1.9rem,3.4vw,2.7rem);margin-bottom:1rem}
 .scard .go svg{width:1em;height:1em;transition:transform .2s var(--ease)}
 .scard:hover .go svg{transform:translateX(4px)}
 
+/* product strip + plan cards (hosting / email / ssl) */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.pcard .plan-tag{font-size:.78rem;font-weight:800;color:var(--teal-700);letter-spacing:.06em;text-transform:uppercase}
+.pcard .plan-note{font-size:.8rem;color:var(--slate-500);font-style:italic}
+.pcard .contact-price{font-size:1.3rem;font-weight:800;color:var(--ink);letter-spacing:-0.01em}
+.pcard .contact-price small{display:block;font-size:.8rem;font-weight:500;color:var(--slate-500);letter-spacing:0}
+.plan-feats{list-style:none;margin:1rem 0 .4rem;padding:0;display:grid;gap:.55rem}
+.plan-feats li{display:flex;gap:.6rem;align-items:flex-start;font-size:.9rem;color:var(--slate-700);line-height:1.45}
+.plan-feats svg{width:1.05rem;height:1.05rem;color:var(--teal-600);flex-shrink:0;margin-top:.15rem}
+
 /* how it works */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;counter-reset:step}
 .step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2.2rem 1.9rem;
@@ -372,10 +382,15 @@ textarea.fi{resize:vertical;min-height:120px}
 .reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}
 
 /* ---------- Responsive ---------- */
+@media(max-width:1150px){
+  .nav{gap:1.05rem}
+  .nav a{font-size:.87rem}
+}
 @media(max-width:1024px){
   .hero-grid{grid-template-columns:1fr;gap:3rem;padding:4rem 0 5.5rem}
   .hero-visual{max-width:34rem}
   .grid3{grid-template-columns:repeat(2,1fr)}
+  .grid4{grid-template-columns:repeat(2,1fr)}
   .price-grid{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:1fr;max-width:34rem;margin:0 auto}
   .about-grid,.contact-grid{grid-template-columns:1fr}
@@ -385,7 +400,7 @@ textarea.fi{resize:vertical;min-height:120px}
 @media(max-width:720px){
   .nav,.header-cta .btn{display:none}
   .burger{display:flex}
-  .grid3,.price-grid{grid-template-columns:1fr}
+  .grid3,.grid4,.price-grid{grid-template-columns:1fr}
   .pad{padding:4rem 0}
   .hero-ctas .btn{flex:1;justify-content:center}
   .sc-form{flex-direction:column}
