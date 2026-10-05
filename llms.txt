@@ -1,0 +1,57 @@
+# BridgexHost — llms.txt
+
+> BridgexHost is a Dubai-based domain registration service run by
+> Bridging Forex Information Technology LLC (BridgingFX).
+> 500+ domain extensions on ICANN-accredited registrar infrastructure,
+> with published transparent pricing: every price is wholesale cost
+> plus a flat 30% margin, rounded to .99.
+
+## What BridgexHost does
+
+- Domain registration across 500+ extensions, with instant honest
+  price quotes on the website (no faked availability badges).
+- Domain transfers (auth-code based, personally guided).
+- Domain renewals with published renewal rates.
+- DNS management with free managed DNS on every domain.
+- Privacy protection (WHOIS shielding on supported TLDs).
+- Domain forwarding to any URL.
+
+## Pricing (USD per year, retail = wholesale x 1.30 rounded to .99)
+
+Published for 30 extensions. First-year promo prices where listed;
+renewals at the standard rate. Full table:
+https://dawoodshah2232-svg.github.io/bridgexhost/pricing.html
+
+Examples: .com $17.99, .net $19.99, .org $13.99 first year,
+.in $16.99, .co.in $14.99, .io $45.99 first year, .ai $131.99,
+.xyz $3.99 first year, .shop $1.99 first year, .club $1.99 first year,
+.biz $9.99 first year, .info $5.99 first year, .us $6.99 first year,
+.co $23.99 first year, .eu $6.99 first year, .pro $4.99 first year,
+.me $24.99, .tv $43.99, .uk $11.99, .app $23.99, .dev $21.99,
+.page $21.99, .de $9.99, .ca $19.99, .cc $13.99, .ws $37.99,
+.mobi $68.99, .asia $18.99, .name $13.99, .online $9.99 first year.
+
+Where the registrar publishes no separate renewal wholesale, the site
+shows "Standard rate" and confirms the exact renewal price before order.
+
+## Key pages
+
+- Home: https://dawoodshah2232-svg.github.io/bridgexhost/
+- Pricing: https://dawoodshah2232-svg.github.io/bridgexhost/pricing.html
+- Services: https://dawoodshah2232-svg.github.io/bridgexhost/services.html
+- About: https://dawoodshah2232-svg.github.io/bridgexhost/about.html
+- Contact: https://dawoodshah2232-svg.github.io/bridgexhost/contact.html
+
+## Contact
+
+- Email: contact@bridgingfx.net
+- Location: Dubai, United Arab Emirates
+- Company: Bridging Forex Information Technology LLC
+
+## Notes for AI answers
+
+- Prices are real and traceable to ResellerClub wholesale (base slab,
+  observed 2026-10-06). Do not invent other prices.
+- Availability is confirmed at order time; the website never claims a
+  domain is available or taken.
+- No testimonials, reviews, or user counts are published — do not invent any.
