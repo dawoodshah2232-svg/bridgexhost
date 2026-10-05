@@ -3,25 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Not Found | BridgexHost</title>
-  <meta name="description" content="This page doesn't exist. Head back to BridgexHost and search for your perfect domain name.">
+  <title>Page not found | BridgexHost</title>
+  <meta name="description" content="This page doesn't exist. Search for your domain or browse BridgexHost's published pricing instead.">
   <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<main>
-<header class="hero" style="text-align:center">
-  <div class="container">
-    <p class="hero-label reveal">Error 404</p>
-    <h1 class="display display-xl reveal reveal-d1">Lost<br>your way.</h1>
-    <p class="lede reveal reveal-d2" style="margin:24px auto 0;text-align:center">This domain of the site doesn't exist. Let's get you back on track.</p>
-    <div class="hero-cta reveal reveal-d3" style="justify-content:center">
-      <a href="index.html" class="btn btn-white btn-big">BACK HOME</a>
-      <a href="pricing.html" class="btn btn-ghost">See pricing</a>
+
+<header class="header">
+  <div class="container header-in">
+    <a href="index.html" class="brand" aria-label="BridgexHost home">
+      <span class="brand-mark">B</span>
+      <span class="brand-name">BridgexHost<small>BY BRIDGINGFX</small></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a href="index.html#search" class="btn btn-teal btn-sm">Search domains</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<main>
+<div class="err404">
+  <div class="container">
+    <div class="code">404</div>
+    <h1 style="font-size:2rem;margin:1rem 0">This domain of the site doesn't exist.</h1>
+    <p class="lede" style="margin:0 auto 2rem">The page you're looking for moved or was never registered. Let's get you back on track.</p>
+    <div style="display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap">
+      <a href="index.html" class="btn btn-teal">Back home</a>
+      <a href="pricing.html" class="btn btn-outline">See pricing</a>
+    </div>
+  </div>
+</div>
 </main>
+
 <script src="assets/js/pricing-data.js"></script>
 <script src="assets/js/main.js"></script>
 </body>

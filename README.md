@@ -1,41 +1,23 @@
-# BridgexHost — marketing website (v2)
+# BridgexHost — marketing website (v3)
 
-Black & white, type-driven marketing site for BridgexHost, the domain
-registration brand of BridgingFX (Dubai, UAE).
+Static marketing site for BridgexHost, themed on the owner's BridgeX Apps
+site: light SaaS, teal #14b8a6 primary, warm orange accents, DM Sans.
 
-Design reference: Spaceship's domain page (search-as-hero, giant type)
-+ BigRock's promo-pricing punch. Pure monochrome — no brand colors.
+- Live: https://dawoodshah2232-svg.github.io/bridgexhost/
+- Pure static HTML/CSS/JS — GitHub Pages ready, relative paths.
 
-## Structure
+Pages: `index.html` (hero domain search, TLD marquee, pricing rail, services,
+how-it-works, FAQ, dark CTA), `pricing.html` (30-TLD grid + FAQ),
+`services.html`, `about.html`, `contact.html`, `404.html`.
 
-- `index.html` — hero (giant animated domain search), price ticker,
-  first-year promo cards, how-it-works, services, stats, FAQ, big CTA
-- `pricing.html` — full 30-TLD price table (JS-rendered), pricing FAQ
-- `services.html` — 6 domain lifecycle services
-- `about.html` — company facts
-- `contact.html` — contact@bridgingfx.net, mailto form with ?domain= prefill
-- `404.html` — branded not-found
-- `sitemap.xml`, `robots.txt`, `llms.txt` — SEO + AI-search plumbing
-- `assets/css/style.css` — monochrome design system
-- `assets/js/pricing-data.js` — SINGLE SOURCE OF TRUTH for prices
-  (wholesale × 1.30, rounded to .99 — from ResellerClub panel 2026-10-06)
-- `assets/js/main.js` — motion engine + honest search + table render
+SEO/AIO/GEO: unique titles + meta descriptions, canonical, OG + Twitter cards,
+JSON-LD (Organization, WebSite/SearchAction, FAQPage, Offers/Services ItemLists),
+`sitemap.xml`, `robots.txt`, `llms.txt`.
 
-## Honesty rules (do not break)
+Pricing: `assets/js/pricing-data.js` is the single source of truth —
+wholesale USD from the ResellerClub panel (2026-10-06), retail =
+floor(wholesale × 1.30) + 0.99. Nothing is invented.
 
-- Search shows the REAL retail price for the typed TLD + renewal info.
-- NEVER show available/taken badges. Availability is confirmed at order.
-- Unknown TLD → "email us" note. Invalid input → error message.
-- No invented numbers anywhere. "Standard rate" where renewal
-  wholesale isn't published.
-
-## Motion rules
-
-- transform/opacity only; IntersectionObserver reveals; magnetic
-  buttons + tilt are desktop-pointer-only; press feedback everywhere;
-  `prefers-reduced-motion` disables all non-essential animation.
-
-## Deploy
-
-Pure static, relative paths. Push to the `bridgexhost` repo root;
-GitHub Pages serves it as-is.
+Honesty rule: the search shows the published retail price + renewal for a
+typed TLD. It NEVER shows available/taken badges; live availability is
+confirmed only at checkout.

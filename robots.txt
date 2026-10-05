@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://dawoodshah2232-svg.github.io/bridgexhost/sitemap.xml
