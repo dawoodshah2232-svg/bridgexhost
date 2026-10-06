@@ -139,11 +139,47 @@
         "?subject=" + encodeURIComponent("Order: " + full) +
         "&body=" + encodeURIComponent("Hi BridgexHost,\n\nI'd like to register " + full + " (" + first + " first year).\n\nName:\n") + '">' +
         '<span class="sr-pick-dom">' + esc(name) + '<span class="t">.' + t + "</span></span>" +
-        '<span class="sr-pick-pr"><b>' + first + "</b><small>first year</small></span></a>";
+        '<span class="sr-pick-pr"><b>' + first + "</b><small>first year</small></span>" +
+        '<small class="sr-pick-av av-check" data-av="' + esc(full) + '">Checking…</small></a>';
     }).join("");
     return '<div><div class="sr-dom">' + esc(name) + ' <span class="t">— pick your extension</span></div>' +
-      '<p class="sr-note">First-year price for each extension. Live availability is confirmed when you order — we show real prices, not guesswork.</p></div>' +
+      '<p class="sr-note">First-year price for each extension, availability checked live against the domain registry.</p></div>' +
       '<div class="sr-picks">' + cards + "</div>";
+  }
+
+  /* live availability via public RDAP (no key needed): 404 = not registered */
+  function checkAvail(domain, cb) {
+    var done = false;
+    function fin(st) { if (!done) { done = true; try { cb(st); } catch (e) {} } }
+    try {
+      var ctl = (typeof AbortController !== "undefined") ? new AbortController() : null;
+      var t = setTimeout(function () { if (ctl) { try { ctl.abort(); } catch (e) {} } fin("unknown"); }, 9000);
+      fetch("https://rdap.org/domain/" + encodeURIComponent(domain), ctl ? { signal: ctl.signal } : {})
+        .then(function (res) { clearTimeout(t); fin(res.status === 404 ? "available" : (res.ok ? "taken" : "unknown")); })
+        .catch(function () { clearTimeout(t); fin("unknown"); });
+    } catch (e) { fin("unknown"); }
+  }
+  function wireAvail(scope) {
+    $all("[data-av]", scope).forEach(function (el) {
+      var domain = el.getAttribute("data-av"), single = el.hasAttribute("data-av-single");
+      checkAvail(domain, function (st) {
+        if (!el.isConnected) return;
+        el.className = el.className.replace(/av-\w+/g, "").trim();
+        if (st === "available") {
+          el.className += " av-yes";
+          el.textContent = single ? "Available — yours to register" : "Available";
+        } else if (st === "taken") {
+          el.className += " av-no";
+          el.textContent = single ? "Already registered — try another name" : "Taken";
+          var card = el.closest(".sr-pick");
+          if (card) { card.classList.add("is-taken"); card.removeAttribute("href"); }
+          if (single) { var ob = scope.querySelector("[data-order]"); if (ob) ob.style.display = "none"; }
+        } else {
+          el.className += " av-maybe";
+          el.textContent = single ? "Couldn't verify live — we'll confirm when you order" : "Verify at order";
+        }
+      });
+    });
   }
 
   $all("[data-search]").forEach(function (form) {
@@ -175,7 +211,7 @@
         // bare name with no TLD (register mode): offer an extension picker, like the big registrars
         if (r.why === "no-tld" && mode === "register" && P) {
           var bare = parseBareName(input.value);
-          if (bare) { render(pickExtensions(bare), false); return; }
+          if (bare) { render(pickExtensions(bare), false); wireAvail(out); return; }
         }
         var msg = r.why === "no-tld"
           ? "Add an extension — for example, <b>myname.com</b>."
@@ -205,16 +241,18 @@
         return;
       }
       var first = money(info.reg), renew = info.renewKnown ? money(info.renew) : "Standard rate";
-      render('<div><div class="sr-dom">' + esc(r.sld) + '<span class="t">.' + esc(r.tld) + "</span></div>" +
+      render('<div><div class="sr-dom">' + esc(r.sld) + '<span class="t">.' + esc(r.tld) + "</span>" +
+        ' <span class="avail av-check" data-av="' + esc(r.full) + '" data-av-single>Checking availability…</span></div>' +
         '<p class="sr-note">' +
         (info.regPromo ? '<span class="tag tag-amber" style="margin-right:8px">First-year offer</span>' : "") +
         "First year <b>" + first + "</b> · Renewal <b>" + renew + "</b>. " +
-        "Live availability is confirmed when you order — we show real prices, not guesswork.</p></div>" +
+        "Availability checked live against the domain registry.</p></div>" +
         '<div class="sr-price"><b>' + first + "</b><small>first year</small></div>" +
         '<div style="flex-basis:100%;display:flex;gap:10px;flex-wrap:wrap">' +
-        '<a class="btn btn-blue btn-sm" href="mailto:' + EMAIL + "?subject=" + encodeURIComponent("Order: " + r.full) +
+        '<a class="btn btn-blue btn-sm" data-order href="mailto:' + EMAIL + "?subject=" + encodeURIComponent("Order: " + r.full) +
         "&body=" + encodeURIComponent("Hi BridgexHost,\n\nI'd like to register " + r.full + " (" + first + " first year).\n\nName:\n") + '">Order this domain</a>' +
         '<a class="btn btn-ghost btn-sm" href="pricing.html">Compare prices</a></div>', false);
+      wireAvail(out);
     });
 
     // auto-submit on the transfers page when ?domain= is present

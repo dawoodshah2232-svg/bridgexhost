@@ -1,7 +1,7 @@
 /* ============================================================
    BridgexHost pricing data — SINGLE SOURCE OF TRUTH.
    Wholesale USD: ResellerClub panel, observed 2026-10-06 (base slab).
-   Retail = floor(wholesale x 1.30) + 0.99  →  30% margin, .99 pricing.
+   Retail = floor(wholesale x 1.15) + 0.99  →  15% margin, .99 pricing.
    `promo` = first-year wholesale where ResellerClub lists a promo price.
    `regular` = standard wholesale (used for the renewal column).
    Where no regular wholesale is published, renewal shows "Standard rate"
@@ -10,7 +10,7 @@
 (function () {
   "use strict";
 
-  var MARGIN = 1.30;
+  var MARGIN = 1.15;
 
   function retail(usd) { return Math.floor(usd * MARGIN) + 0.99; }
   function money(n) { return "$" + n.toFixed(2); }

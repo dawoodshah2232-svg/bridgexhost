@@ -6,7 +6,7 @@ Bridging Forex Information Technology LLC. Contact: contact@bridgingfx.net.
 ## What we do (facts only)
 - Register, transfer and renew domain names across 500+ extensions.
 - 30 extensions have published first-year and renewal prices on /pricing.html.
-- Every published price = ResellerClub wholesale cost + a flat 30% margin, rounded to .99.
+- Every published price = ResellerClub wholesale cost + a flat 15% margin, rounded to .99.
 - Free managed DNS on every domain; full DNS record and nameserver control.
 - Shared web hosting: Linux Personal/Business/Pro plans with unmetered storage
   and bandwidth, free SSL, cPanel/Plesk, 400+ one-click installs, 30-day

@@ -326,6 +326,19 @@ body.menu-open .mmenu a.mlink { opacity: 1; transform: none; }
 .sr-pick-pr b { font-size: 1.25rem; font-weight: 800; }
 .sr-pick-pr small { display: block; color: var(--dim); font-size: 0.78rem; }
 @media (max-width: 720px) { .sr-picks { grid-template-columns: repeat(2, 1fr); } }
+
+/* live availability badges (public RDAP, no key needed) */
+.avail { display: inline-block; margin-left: 10px; font-size: 0.82rem; font-weight: 700; padding: 6px 14px; border-radius: 999px; vertical-align: middle; white-space: nowrap; }
+.av-check { background: rgba(255, 255, 255, 0.07); color: var(--mut); }
+.av-yes { background: rgba(46, 204, 113, 0.16); color: #5be584; }
+.av-no { background: rgba(255, 107, 107, 0.15); color: #ff8f8f; }
+.av-maybe { background: rgba(255, 190, 80, 0.15); color: #ffcf7d; }
+.sr-pick-av { font-size: 0.8rem; font-weight: 700; }
+.sr-pick-av.av-check { color: var(--mut); }
+.sr-pick-av.av-yes { color: #5be584; }
+.sr-pick-av.av-no { color: #ff8f8f; }
+.sr-pick-av.av-maybe { color: #ffcf7d; }
+.sr-pick.is-taken { opacity: 0.45; }
 @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 
 /* ---------- marquee ---------- */
