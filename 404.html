@@ -1,63 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page not found | BridgexHost</title>
-  <meta name="description" content="This page doesn't exist. Search for your domain or browse BridgexHost's published pricing instead.">
-  <meta name="robots" content="noindex">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found | BridgexHost</title>
+<meta name="description" content="This page took off without us. Search for your domain, see pricing, or contact the BridgexHost team.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<header class="header">
-  <div class="container header-in">
-    <a href="index.html" class="brand" aria-label="BridgexHost home">
-      <span class="brand-mark">B</span>
-      <span class="brand-name">BridgexHost<small>BY BRIDGINGFX</small></span>
+<header class="site-head">
+  <div class="container head-in">
+    <a class="brand" href="index.html" aria-label="BridgexHost home">
+      <img src="assets/img/logo.svg" alt="BridgexHost logo" width="38" height="38">
+      <span class="brand-name">Bridge<em>x</em>Host</span>
     </a>
-        <nav class="nav" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="index.html#search">Domains</a>
-      <a href="hosting.html">Hosting</a>
-      <a href="email.html">Email</a>
-      <a href="ssl.html">SSL</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="header-cta">
-      <a href="index.html#search" class="btn btn-teal btn-sm">Search domains</a>
-      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="head-cta" style="margin-left:auto">
+      <a class="btn btn-blue btn-sm" href="domains.html">Search domains</a>
     </div>
   </div>
 </header>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a>
-  <a href="index.html#search">Domains</a>
-  <a href="hosting.html">Hosting</a>
-  <a href="email.html">Email</a>
-  <a href="ssl.html">SSL</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-</div>
 
 <main>
-<div class="err404">
-  <div class="container">
-    <div class="code">404</div>
-    <h1 style="font-size:2rem;margin:1rem 0">This domain of the site doesn't exist.</h1>
-    <p class="lede" style="margin:0 auto 2rem">The page you're looking for moved or was never registered. Let's get you back on track.</p>
-    <div style="display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap">
-      <a href="index.html" class="btn btn-teal">Back home</a>
-      <a href="pricing.html" class="btn btn-outline">See pricing</a>
+<section class="hero" style="min-height:70vh;display:flex;align-items:center">
+  <div class="container hero-in">
+    <span class="eyebrow">404</span>
+    <h1 class="display">This page took off<br>without us.</h1>
+    <p class="lede">It may have moved, or the address was mistyped. Let's get you back on course.</p>
+    <div class="searchwrap">
+      <form data-search role="search" aria-label="Domain search">
+        <div class="searchbar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#8a90a0" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
+          <input type="text" name="q" placeholder="Find your domain…" autocomplete="off" spellcheck="false" aria-label="Domain name">
+          <button class="btn btn-blue" type="submit">Search</button>
+        </div>
+      </form>
+      <div class="sr" aria-live="polite"></div>
+    </div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px">
+      <a class="btn btn-ghost" href="index.html">Go home</a>
+      <a class="btn btn-ghost" href="pricing.html">See pricing</a>
+      <a class="btn btn-ghost" href="contact.html">Contact us</a>
     </div>
   </div>
-</div>
+</section>
 </main>
 
 <script src="assets/js/pricing-data.js"></script>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="BridgexHost logo — orbital X">
+  <!-- BridgexHost "Orbit X": a bold launch-X wrapped by an orbital ring, mint planet riding the trajectory -->
+  <ellipse cx="32" cy="33" rx="27.5" ry="12.5" fill="none" stroke="#E9ECF5" stroke-width="3.4" transform="rotate(-18 32 33)"/>
+  <path d="M20.5 16.5 L43.5 50.5" fill="none" stroke="#2F5BFF" stroke-width="8.6" stroke-linecap="round"/>
+  <path d="M43.5 16.5 L20.5 50.5" fill="none" stroke="#2F5BFF" stroke-width="8.6" stroke-linecap="round"/>
+  <circle cx="52.5" cy="20" r="4.6" fill="#3CF5C6"/>
+  <circle cx="52.5" cy="20" r="7.4" fill="none" stroke="#3CF5C6" stroke-width="1.4" opacity="0.45"/>
+</svg>
