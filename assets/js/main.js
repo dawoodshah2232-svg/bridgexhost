@@ -122,6 +122,30 @@
     return { ok: true, sld: sld, tld: tld, full: sld + "." + tld };
   }
 
+  /* bare name without TLD, e.g. "leadsautobot" -> extension picker */
+  function parseBareName(raw) {
+    var v = String(raw || "").trim().toLowerCase()
+      .replace(/^https?:\/\//, "").replace(/^www\./, "").split("/")[0].split("?")[0];
+    if (!v || v.length > 63 || !/^[a-z0-9-]+$/.test(v) || /^-|-$/.test(v)) return null;
+    return v;
+  }
+  function pickExtensions(name) {
+    var picks = ["com", "net", "org", "io", "ai", "co", "shop", "xyz"];
+    var cards = picks.map(function (t) {
+      var info = P.find(t);
+      if (!info) return "";
+      var first = money(info.reg), full = name + "." + t;
+      return '<a class="sr-pick" href="mailto:' + EMAIL +
+        "?subject=" + encodeURIComponent("Order: " + full) +
+        "&body=" + encodeURIComponent("Hi BridgexHost,\n\nI'd like to register " + full + " (" + first + " first year).\n\nName:\n") + '">' +
+        '<span class="sr-pick-dom">' + esc(name) + '<span class="t">.' + t + "</span></span>" +
+        '<span class="sr-pick-pr"><b>' + first + "</b><small>first year</small></span></a>";
+    }).join("");
+    return '<div><div class="sr-dom">' + esc(name) + ' <span class="t">— pick your extension</span></div>' +
+      '<p class="sr-note">First-year price for each extension. Live availability is confirmed when you order — we show real prices, not guesswork.</p></div>' +
+      '<div class="sr-picks">' + cards + "</div>";
+  }
+
   $all("[data-search]").forEach(function (form) {
     var input = $("input", form), segBtns = $all(".seg button", form),
         out = $(form.getAttribute("data-search-out") || ".sr", form.parentNode) || $(".sr"),
@@ -148,6 +172,11 @@
         out.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "nearest" });
       }
       if (!r.ok) {
+        // bare name with no TLD (register mode): offer an extension picker, like the big registrars
+        if (r.why === "no-tld" && mode === "register" && P) {
+          var bare = parseBareName(input.value);
+          if (bare) { render(pickExtensions(bare), false); return; }
+        }
         var msg = r.why === "no-tld"
           ? "Add an extension — for example, <b>myname.com</b>."
           : "That doesn't look like a valid domain. Use letters, numbers and hyphens — e.g. <b>myname.com</b>.";
