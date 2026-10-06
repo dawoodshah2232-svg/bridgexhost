@@ -228,7 +228,7 @@
   /* ---------- homepage: offer cards ---------- */
   $all("[data-offers]").forEach(function (el) {
     if (!P) return;
-    var offers = P.TLDS.filter(function (d) { return d.regPromo; }).slice(0, 6);
+    var offers = P.TLDS.filter(function (d) { return d.regPromo; }).sort(function (a, b) { return a.reg - b.reg; }).slice(0, 6);
     el.innerHTML = offers.map(function (d) {
       return '<div class="offer rv"><span class="tag tag-amber">First-year offer</span>' +
         '<div class="tld">.' + d.tld + "</div>" +
